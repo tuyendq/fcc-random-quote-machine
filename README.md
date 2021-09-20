@@ -1,3 +1,5 @@
+[![Publish to surge.sh](https://github.com/tuyendq/fcc-random-quote-machine/actions/workflows/publish-surge.yaml/badge.svg?branch=surge_sh)](https://github.com/tuyendq/fcc-random-quote-machine/actions/workflows/publish-surge.yaml)
+
 # freeCodeCamp - Random Quote Machine
 
 ## Deploy to surge.sh
