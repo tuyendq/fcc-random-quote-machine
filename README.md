@@ -14,7 +14,9 @@ $SURGE_TOKEN = surge token
 gh secret set SURGE_DOMAIN -b"${SURGE_DOMAIN}" --repos="${REPO_NAME}"
 
 # Set secret visible only to certain repositories
-gh secret set SURGE_TOKEN --body="${SURGE_TOKEN}" --repos="${REPO_NAME}"
+gh secret set SURGE_TOKEN -b"${SURGE_TOKEN}" --repos="${REPO_NAME}"
+
+
 ```
 
 - Compose .github/workflows/publish-surge.yaml file
