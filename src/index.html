@@ -42,7 +42,7 @@
       let quote = await getQuote();
       document.getElementById("text").innerHTML = "&quot;" + quote.quote + "&quot;";
       document.getElementById("author").innerHTML = "&mdash; " + quote.author;
-      document.getElementById("tweet-quote").setAttribute("href", "https://twitter.com/intent/tweet?text=" + encodeURIComponent(quote.quote) + " — " + encodeURIComponent(quote.author));
+      document.getElementById("tweet-quote").setAttribute("href", "https://twitter.com/intent/tweet?text=\"" + encodeURIComponent(quote.quote) + "\" — " + encodeURIComponent(quote.author));
     }
   </script>
 </head>
