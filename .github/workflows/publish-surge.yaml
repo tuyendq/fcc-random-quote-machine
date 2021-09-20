@@ -1,0 +1,33 @@
+name: Publish to surge.sh
+
+on: 
+  push:
+    branches: [surge_sh]
+    paths-ignore:
+      - "**.md"
+  pull_request:
+    branches: [surge_sh]
+  page_build:
+  release:
+    types:
+      - created
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build & Test & Publish
+    steps:
+      - name: Check out from repository
+        uses: actions/checkout@v2
+      - name: Setup Nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+      - name: Setup environment
+        run: npm install
+      - name: Install surge globally
+        run: npm install -g surge
+      - name: Run test
+        run: echo "To-do list"
+      - name: Publish to surge.sh
+        run: surge ./src ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }} ./src
