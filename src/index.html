@@ -21,11 +21,7 @@
 
       let numOfQuotes = (await response).quotes.length;
       let randomNumber = Math.floor(Math.random(numOfQuotes) * 100);
-      // console.log("Number of quotes:", numOfQuotes);
-      // console.log("Random number:", randomNumber);
-      // console.log((await response).quotes[randomNumber]);
-      // console.log((await response).quotes[randomNumber].quote);
-      // console.log((await response).quotes[randomNumber].author);
+
       return (await response).quotes[randomNumber];
     }
 
@@ -41,8 +37,8 @@
 <body>
   <div id="wrapper">
     <div id="quote-box">
-      <p id="text">...</p>
-      <p id="author">&mdash; ...</p>
+      <p id="text"></p>
+      <p id="author"></p>
       <button id="new-quote" onclick=renewQuote()>New quote</button>
       <a id="tweet-quote" target="_blank"
         href="https://twitter.com/intent/tweet?text=Random%20Quote%20Machine"><button>Tweet
