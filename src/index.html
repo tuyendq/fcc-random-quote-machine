@@ -11,6 +11,14 @@
       margin: auto;
       width: 95%;
     }
+
+    #text {
+      font-size: 1.75rem;
+    }
+
+    #author {
+      font-style: italic;
+    }
   </style>
   <script defer>
     async function getQuote() {
@@ -27,9 +35,9 @@
 
     async function renewQuote() {
       let quote = await getQuote();
-      document.getElementById("text").innerHTML = quote.quote;
+      document.getElementById("text").innerHTML = "&quot;" + quote.quote + "&quot;";
       document.getElementById("author").innerHTML = "&mdash; " + quote.author;
-      document.getElementById("tweet-quote").setAttribute("href", "https://twitter.com/intent/tweet?text=" + encodeURIComponent(quote.quote) + " " + encodeURIComponent(quote.author));
+      document.getElementById("tweet-quote").setAttribute("href", "https://twitter.com/intent/tweet?text=" + encodeURIComponent(quote.quote) + " — " + encodeURIComponent(quote.author));
     }
   </script>
 </head>
