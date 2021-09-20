@@ -24,6 +24,15 @@
       font-style: italic;
       font-weight: 600;
     }
+
+    .center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px solid #0000CD;
+      padding: 1rem;
+    }
   </style>
   <script defer>
     async function getQuote() {
@@ -49,7 +58,7 @@
 
 <body>
   <div id="wrapper">
-    <div id="quote-box">
+    <div id="quote-box" class="center">
       <p id="text"></p>
       <p id="author"></p>
       <button id="new-quote" onclick=renewQuote()>New quote</button>
