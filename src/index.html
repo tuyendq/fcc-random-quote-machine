@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FCC - Random Quote Machine</title>
+  <style>
+    #wrapper {
+      margin: auto;
+      width: 95%;
+    }
+  </style>
+  <script defer>
+    async function getQuote() {
+      let quoteUrl = 'https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json';
+      const response = fetch(quoteUrl)
+        .then(res => (res.json()))
+        .catch(error => console.error('Error:', error));
+
+      let numOfQuotes = (await response).quotes.length;
+      let randomNumber = Math.floor(Math.random(numOfQuotes) * 100);
+      // console.log("Number of quotes:", numOfQuotes);
+      // console.log("Random number:", randomNumber);
+      // console.log((await response).quotes[randomNumber]);
+      // console.log((await response).quotes[randomNumber].quote);
+      // console.log((await response).quotes[randomNumber].author);
+      return (await response).quotes[randomNumber];
+    }
+
+    async function renewQuote() {
+      let quote = await getQuote();
+      document.getElementById("text").innerHTML = quote.quote;
+      document.getElementById("author").innerHTML = "&mdash; " + quote.author;
+      document.getElementById("tweet-quote").setAttribute("href", "https://twitter.com/intent/tweet?text=" + encodeURIComponent(quote.quote) + " " + encodeURIComponent(quote.author));
+    }
+  </script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="quote-box">
+      <p id="text">...</p>
+      <p id="author">&mdash; ...</p>
+      <button id="new-quote" onclick=renewQuote()>New quote</button>
+      <a id="tweet-quote" target="_blank"
+        href="https://twitter.com/intent/tweet?text=Random%20Quote%20Machine"><button>Tweet
+          quote</button></a>
+    </div>
+  </div>
+  <script>
+    window.addEventListener("DOMContentLoaded", renewQuote);
+  </script>
+</body>
+
+</html>
