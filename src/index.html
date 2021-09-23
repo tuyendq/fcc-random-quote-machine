@@ -7,31 +7,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FCC - Random Quote Machine</title>
   <style>
-    #wrapper {
-      margin: auto;
-      width: 95%;
+    body {
+      background-color: #90bd31;
     }
-
-    #quote-box {
+    #wrapper {
       text-align: center;
     }
 
+    #quote-box {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+    }
+
     #text {
-      font-size: 1.75rem;
+      font-size: calc(1rem + 4vmin);
     }
 
     #author {
       font-style: italic;
-      font-weight: 600;
-    }
-
-    .center {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      border: 2px solid #0000CD;
-      padding: 1rem;
+      font-weight: 500;
+      font-size: calc(1rem + 2vmin);
     }
   </style>
   <script defer>
